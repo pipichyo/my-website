@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #111;
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1f1f1f, #333);
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+    color: #aaa;
+}
+
+.hero button {
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    background: orange;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.hero button:hover {
+    background: red;
+    transition: 0.3s;
+}
+
+/* CARDS */
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+}
+
+.card:hover {
+    background: orange;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+body.light {
+    background: #f5f5f5;
+    color: #111;
+}
+
+body.light .hero {
+    background: linear-gradient(135deg, #ffffff, #ddd);
+}
+
+body.light .card {
+    background: #fff;
+}
+
+body.light .card:hover {
+    background: orange;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+body {
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.card {
+    transition: background 0.4s ease;
+}
+
+.hero {
+    transition: background 0.4s ease;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    transition: 0.3s;
+    z-index: 1500;
+}
+.theme-toggle.active {
+    z-index: 1;
+}
+
+.hero {
+    position: relative;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+body.light .theme-toggle {
+    background-color: #ffffff;
+    color: #111;
+}
+
+.card {
+    background: #333;
+    padding: 40px;
+    border-radius: 10px;
+    flex: 1 1 250px;
+    text-align: center;
+    box-shadow: 2px 2px 4px orange;
+    opacity: 0;
+    transition: 0.6s ease;
+}
+
+/* Когда карточка становится видимой */
+
+
+.card.left {
+    transform: translateX(-100px);
+}
+
+.card.right {
+    transform: translateX(100px);
+}
+
+.card.bottom {
+    transform: translateY(100px);
+}
+
+.card.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.burger {
+    width: 30px;
+    height: 22px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#home {
+    display: none;
+}
+#about {
+    display: none;
+}
+#projects {
+    display: none;
+}
+#contact {
+    display:none;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 20px;
+    transition: 0.3s;
+
+    z-index: 1000;
+    }  
+    .header.scrolled {
+        background: #111;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+.header.hide {
+    transform: translateY(-100%);
+}
+.nav.active {
+        z-index: 30000;
+    }
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .cards {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .burger {
+        position: relative;
+        display: flex;
+        z-index: 1001;
+    }
+
+    .nav {
+        font-size: 18px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background: #222;
+        flex-direction: column;
+        padding: 80px 30px;
+        transform: translateX(100%);
+        transition: 0.3s;
+        z-index: 3000;
+    }
+
+    .nav.active {
+        display: flex;
+        transform: translateX(0);
+        z-index: 30000;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background: rgba(0,0,0,0.5);
+
+        opacity: 0;
+        pointer-events: none;
+
+        transition: 0.3s;
+
+        z-index: 900;
+    }
+    .overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+  
+}
+
