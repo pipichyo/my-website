@@ -89,9 +89,7 @@ let lastScroll = 0;
 
 window.addEventListener("scroll", function() {
     let currentScroll = window.scrollY;
-    if (currentScroll <= 50) {
-        header.classList.remove("hide");
-    }
+    
     if (currentScroll > lastScroll) {
         header.classList.add("hide");
     } else {
